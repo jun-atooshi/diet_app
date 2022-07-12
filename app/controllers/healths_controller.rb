@@ -6,11 +6,7 @@ class HealthsController < ApplicationController
   end
 
   def new
-    if params[:back]
-      @health = Health.new(health_params)
-    else
-      @health = Health.new
-    end
+    @health = params[:back] ? Health.new(health_params) : Health.new
   end
 
   def create

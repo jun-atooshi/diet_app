@@ -1,0 +1,16 @@
+<p><%= notice %></p>
+
+<h1>入力一覧</h1>
+
+<% @health.each do | health | %>
+    <p>名前: <%= health.name %></p>
+    <p>身長: <%= health.height.to_f %>cm</p>
+    <p>体重: <%= health.weight.to_f %>kg</p>
+    <p>メモ: <%= health.content %></p>
+    <%= link_to '情報を編集する', edit_health_path(health.id) %>
+    <%= link_to 'データを削除する', health_path(health.id), method: :delete, data:{confirm: '本当に削除していいですか？'} %>
+    <br>
+<% end %>
+
+<br>
+<%= link_to "情報を入力する", new_health_path %>

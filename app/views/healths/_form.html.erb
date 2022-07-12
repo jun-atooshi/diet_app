@@ -1,0 +1,29 @@
+<%= form_for(@health, url: choose_new_or_edit) do |f| %>
+    <% if @health.errors.any? %>
+        <div id="error_explanation">
+            <h2><%= @health.errors.count %>件のエラーがあります。</h2>
+
+            <ul>
+                <% @health.errors.full_messages.each do | message | %>
+                    <%= message %>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
+
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <br>
+    <%= f.label :height %>
+    <%= f.text_field :height %>
+    <br>
+    <%= f.label :weight %>
+    <%= f.text_field :weight %>
+    <br>
+    <%= f.label :content %>
+    <%= f.text_field :content %>
+    <br>
+    <%= f.submit %>
+<% end %>
+
+<%= link_to "入力一覧画面にもどる", healths_path %>

@@ -1,0 +1,23 @@
+<h3>以下の内容で、送信する。</h3>
+
+<%= form_for(@health) do |f| %>
+    <%= f.hidden_field :name %>
+    <%= f.hidden_field :height %>
+    <%= f.hidden_field :weight %>
+    <%= f.hidden_field :content %>
+
+    <p>名前: <%= @health.name %></p>
+    <p>身長: <%= @health.height %></p>
+    <p>体重: <%= @health.weight %></p>
+    <p>メモ: <%= @health.content %></p>
+
+    <%= f.submit "送信する" %>
+<% end %>
+
+<%= form_for(@health, url: new_health_path, method: 'get') do |f| %>
+    <%= f.hidden_field :name %>
+    <%= f.hidden_field :height %>
+    <%= f.hidden_field :weight %>
+    <%= f.hidden_field :content %>
+    <%= f.submit "戻る", name: 'back'%>
+<% end %>
